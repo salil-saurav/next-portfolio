@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Salil Saurav Portfolio
 
-## Getting Started
+Modern dark-themed developer portfolio built with Next.js, React, Tailwind CSS, Framer Motion, and lucide-react.
 
-First, run the development server:
+## Features
+
+- App Router based Next.js project
+- Responsive dark UI with accessible focus states
+- Framer Motion reveal animations and micro-interactions
+- Resume-driven content in `data/profile.ts`
+- Modular sections for Hero, About, Skills, Experience, Projects, and Contact
+- SEO metadata in `app/layout.tsx`
+- Contact form UI with an email integration placeholder
+
+## Run Locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Production Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+The fastest deployment path is Vercel:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this project to GitHub.
+2. Import the repository in Vercel.
+3. Keep the default Next.js settings.
+4. Add a custom domain if needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Contact Form Integration
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The form currently prevents default submission and shows a placeholder status message. A placeholder route exists at `app/api/contact/route.ts`; connect it to an open-source-friendly provider or SMTP setup such as Nodemailer, Resend SDK, or EmailJS.
