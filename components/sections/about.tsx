@@ -8,13 +8,13 @@ export function About() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="About"
-          title="A developer who cares about architecture and delivery."
-          description="Salil works across front-end, back-end, CMS, and API layers, with a preference for reliable systems that are easy to extend after launch."
+          title="I care about architecture and delivering real results."
+          description="I work across front-end, back-end, CMS, and API layers, with a focus on building reliable systems that are easy to extend after launch."
         />
 
         <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="rounded-lg border border-white/10 bg-white/[0.045] p-6 md:p-8">
-            <p className="text-lg leading-8 text-white/[0.74]">{profile.summary}</p>
+            <p className="text-lg leading-8 text-white/[0.74]">{profile.aboutSummary}</p>
             <div className="mt-8 grid gap-3 sm:grid-cols-2">
               {toolbelt.map((tool) => {
                 const Icon = tool.icon;

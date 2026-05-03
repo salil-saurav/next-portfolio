@@ -40,7 +40,7 @@ export function Navbar() {
           className="hidden items-center gap-2 rounded-md border border-mint/30 bg-mint/[0.12] px-3 py-2 text-sm font-semibold text-mint transition hover:bg-mint/[0.18] focus:outline-none focus:ring-2 focus:ring-mint/70 md:flex"
         >
           <Send className="size-4" aria-hidden="true" />
-          Hire Salil
+          Hire
         </a>
 
         <button

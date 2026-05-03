@@ -18,8 +18,8 @@ export function Skills() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Skills"
-          title="A practical stack for shipping reliable web products."
-          description="The strongest signal is Laravel, WordPress engineering, API integration, and database-backed application work, supported by React and Node.js."
+          title="The stack I use to ship scalable web applications."
+          description="My core expertise lies in WordPress engineering, Laravel, API integrations, and database-driven systems, supported by React and Node.js."
         />
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">

@@ -11,7 +11,12 @@ import {
   Phone,
   Server,
   Sparkles,
-  Workflow
+  Workflow,
+  Package,
+  Terminal,
+  GitMerge,
+  Cloud,
+  Container
 } from "lucide-react";
 
 export const profile = {
@@ -24,6 +29,8 @@ export const profile = {
   portfolio: "https://salilsaurav.free.nf",
   summary:
     "Full-stack developer with 2.5 years of experience building scalable, high-performance web applications with clean and maintainable code. Strong in end-to-end development, deployment, database design, and back-end focused problem solving.",
+  aboutSummary:
+    "I specialize in building structured back-end systems using Laravel, designing reusable service layers, and developing custom WordPress plugins & themes. I work extensively with APIs, database design, and performance optimization to ensure applications are fast, scalable, and easy to maintain.",
   focus: [
     "Back-end architecture",
     "Laravel service layers",
@@ -54,7 +61,7 @@ export const skillGroups = [
     icon: Code2,
     color: "text-aqua",
     items: [
-      { name: "JavaScript", level: 88 },
+      { name: "JavaScript", level: 94 },
       { name: "PHP", level: 90 },
       { name: "HTML5", level: 92 },
       { name: "CSS3", level: 86 }
@@ -96,9 +103,13 @@ export const skillGroups = [
 ];
 
 export const toolbelt = [
+  { label: "Composer", icon: Package },
+  { label: "WP-CLI", icon: Terminal },
+  { label: "CLI", icon: Terminal },
+  { label: "GitLab CI/CD", icon: GitMerge },
+  { label: "Azure", icon: Cloud },
+  { label: "Docker", icon: Container },
   { label: "Git", icon: GitBranch },
-  { label: "GitHub", icon: Braces },
-  { label: "Postman", icon: Globe2 },
   { label: "Custom Plugins", icon: Blocks },
   { label: "Reusable Services", icon: Server },
   { label: "SEO Tooling", icon: Sparkles }
@@ -146,28 +157,44 @@ export const education = [
 
 export const projects = [
   {
-    title: "SEO Intelligence Toolkit",
-    type: "Client Tooling",
+    title: "GoSweetSpot Live Shipping Plugin",
+    type: "WooCommerce Integration",
     description:
-      "A modular SEO utility concept for auditing metadata, page health, schema readiness, and content signals from a single workflow.",
-    stack: ["Laravel", "WordPress", "REST APIs", "MySQL"],
-    accent: "mint"
-  },
-  {
-    title: "Plugin Architecture Studio",
-    type: "WordPress Engineering",
-    description:
-      "A PSR-4 plugin foundation with service providers, admin modules, API adapters, and reusable components for faster client delivery.",
-    stack: ["PHP", "OOP", "WordPress", "Composer"],
+      "A custom WordPress/WooCommerce plugin that fetches real-time shipping rates from the GoSweetSpot API at checkout, presenting customers with multiple carrier options and letting them choose based on cost and delivery preference.",
+    stack: ["PHP", "WordPress", "WooCommerce", "GoSweetSpot API", "REST API"],
     accent: "aqua"
   },
   {
-    title: "Laravel API Operations Layer",
-    type: "Back-end System",
+    title: "WordPress Performance & Debloater Suite",
+    type: "WordPress Plugin",
     description:
-      "A clean repository and service-class pattern for integrating external APIs, validating payloads, and isolating business logic.",
-    stack: ["Laravel", "PostgreSQL", "Postman", "GitLab CI"],
+      "An all-in-one WordPress plugin for speed and stability — disabling unnecessary core features, reducing HTTP requests, deferring scripts, and applying targeted optimizations to improve load times and Lighthouse scores out of the box.",
+    stack: ["PHP", "WordPress", "OOP", "Composer"],
+    accent: "mint"
+  },
+  {
+    title: "PSR-4 Plugin & Theme Framework",
+    type: "WordPress Engineering",
+    description:
+      "A fully structured PSR-4 autoloaded foundation for building production-grade WordPress plugins and themes — featuring service providers, admin module separation, hook management, and reusable API adapters for faster, maintainable client delivery.",
+    stack: ["PHP", "OOP", "WordPress", "Composer", "PSR-4"],
     accent: "amber"
+  },
+  {
+    title: "Restaurant Discovery via Geolocation",
+    type: "Maps API Integration",
+    description:
+      "Integrated the Google Maps Geolocation API into a web application to let users search, filter, and discover nearby restaurants based on their live location — with map markers, proximity sorting, and dynamic result rendering.",
+    stack: ["JavaScript", "Google Maps API", "Geolocation API", "PHP", "MySQL"],
+    accent: "coral"
+  },
+  {
+    title: "Multi-Framework Project Contributions",
+    type: "Cross-Stack Development",
+    description:
+      "Contributed across a breadth of production stacks including Next.js, React, Vue, Ruby on Rails, and Django — handling feature development, API integrations, and back-end modules as part of cross-functional teams.",
+    stack: ["Next.js", "React", "Vue", "Ruby on Rails", "Django"],
+    accent: "violet"
   }
 ];
 

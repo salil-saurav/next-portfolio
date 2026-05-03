@@ -37,7 +37,7 @@ export function Hero() {
             variants={item}
             className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl"
           >
-            Salil Saurav builds fast, maintainable web systems.
+            I build fast, scalable, and maintainable web systems.
           </motion.h1>
 
           <motion.p
@@ -68,7 +68,14 @@ export function Hero() {
               rel="noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-md border border-white/[0.12] px-5 py-3 text-sm font-bold text-white/75 transition hover:border-aqua/40 hover:text-aqua focus:outline-none focus:ring-2 focus:ring-aqua/70"
             >
-              {/* <Linkedin className="size-4" aria-hidden="true" /> */}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M8 11v5" />
+                <path d="M8 8v.01" />
+                <path d="M12 16v-5" />
+                <path d="M16 16v-3a2 2 0 1 0 -4 0" />
+                <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" />
+              </svg>
               LinkedIn
             </a>
           </motion.div>
@@ -99,7 +106,6 @@ export function Hero() {
                 <span className="size-3 rounded-full bg-amber" />
                 <span className="size-3 rounded-full bg-mint" />
               </div>
-              <span className="font-mono text-xs text-white/[0.44]">salil.profile.ts</span>
             </div>
 
             <div className="space-y-4 font-mono text-sm leading-7 text-white/[0.78]">
@@ -111,7 +117,7 @@ export function Hero() {
                 role: <span className="text-mint">"{profile.role}"</span>,
               </p>
               <p className="pl-4">
-                stack: <span className="text-amber">["Laravel", "React", "Node", "WP"]</span>,
+                stack: <span className="text-amber">["Wordpress", "Laravel", "React", "Node"]</span>,
               </p>
               <p className="pl-4">
                 style: <span className="text-mint">"clean, scalable, pragmatic"</span>,

@@ -12,8 +12,8 @@ export function Experience() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Experience"
-          title="Production work across WordPress, Laravel, APIs, and performance."
-          description="Experience spans custom plugin development, Laravel back-end modules, API integrations, SEO tooling, debugging, and cross-functional delivery."
+          title="I build and ship production-grade web applications."
+          description="From WordPress plugin systems to Laravel back-end modules, I’ve worked on APIs, performance optimization, SEO tooling, and solving real-world production challenges."
         />
 
         <div className="relative mx-auto max-w-4xl">
