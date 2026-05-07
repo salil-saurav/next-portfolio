@@ -40,3 +40,7 @@ The fastest deployment path is Vercel:
 ## Contact Form Integration
 
 The form currently prevents default submission and shows a placeholder status message. A placeholder route exists at `app/api/contact/route.ts`; connect it to an open-source-friendly provider or SMTP setup such as Nodemailer, Resend SDK, or EmailJS.
+
+## Updated (07 May 26)
+
+env added
