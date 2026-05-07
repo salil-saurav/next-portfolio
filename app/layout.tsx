@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/constants";
+import { SkipNav } from "@/components/ui/skip-nav";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,15 +18,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://salilsaurav.free.nf"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Salil Saurav | Full-Stack Developer",
+    default: SITE_TITLE,
     template: "%s | Salil Saurav"
   },
-  description:
-    "Portfolio of Salil Saurav, a full-stack developer specializing in Laravel, React, Node.js, WordPress, APIs, and scalable web applications.",
+  description: SITE_DESCRIPTION,
   keywords: [
-    "Salil Saurav",
+    SITE_NAME,
     "Full-Stack Developer",
     "Laravel Developer",
     "React Developer",
@@ -31,14 +33,14 @@ export const metadata: Metadata = {
     "WordPress Developer",
     "Gurugram"
   ],
-  authors: [{ name: "Salil Saurav" }],
-  creator: "Salil Saurav",
+  authors: [{ name: SITE_NAME }],
+  creator: SITE_NAME,
   openGraph: {
-    title: "Salil Saurav | Full-Stack Developer",
+    title: SITE_TITLE,
     description:
       "Dark, interactive portfolio showcasing Laravel, React, Node.js, WordPress, APIs, and performance-focused engineering.",
-    url: "https://salilsaurav.free.nf",
-    siteName: "Salil Saurav Portfolio",
+    url: SITE_URL,
+    siteName: `${SITE_NAME} Portfolio`,
     locale: "en_IN",
     type: "website"
   },
@@ -54,8 +56,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+      <body>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+          <SkipNav />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

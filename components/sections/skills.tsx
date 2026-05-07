@@ -1,9 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skillGroups } from "@/data/profile";
+import { Code2, Database, Layers3, Workflow } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { skillGroups } from "@/data/skills";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
+
+const groupIcons: Record<string, LucideIcon> = {
+  Languages: Code2,
+  Frameworks: Layers3,
+  Databases: Database,
+  Platforms: Workflow
+};
 
 const barColors: Record<string, string> = {
   "text-aqua": "bg-aqua",
@@ -24,7 +33,7 @@ export function Skills() {
 
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {skillGroups.map((group, groupIndex) => {
-            const Icon = group.icon;
+            const Icon = groupIcons[group.title] ?? Code2;
             const bar = barColors[group.color] ?? "bg-mint";
 
             return (
@@ -32,16 +41,16 @@ export function Skills() {
                 key={group.title}
                 whileHover={{ y: -6 }}
                 transition={{ type: "spring", stiffness: 240, damping: 18 }}
-                className="rounded-lg border border-white/10 bg-panel/[0.78] p-5 shadow-xl shadow-black/20"
+                className="rounded-lg border border-border-primary bg-panel/[0.78] p-5 shadow-xl shadow-black/20"
               >
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-white/[0.48]">0{groupIndex + 1}</p>
-                    <h3 className="mt-1 font-display text-2xl font-semibold text-white">
+                    <p className="text-sm text-text-muted">0{groupIndex + 1}</p>
+                    <h3 className="mt-1 font-display text-2xl font-semibold text-text-primary">
                       {group.title}
                     </h3>
                   </div>
-                  <span className="grid size-11 place-items-center rounded-md border border-white/10 bg-white/[0.07]">
+                  <span className="grid size-11 place-items-center rounded-md border border-border-primary bg-surface-card">
                     <Icon className={`size-5 ${group.color}`} aria-hidden="true" />
                   </span>
                 </div>
@@ -50,10 +59,10 @@ export function Skills() {
                   {group.items.map((skill) => (
                     <div key={skill.name}>
                       <div className="mb-2 flex items-center justify-between gap-3 text-sm">
-                        <span className="font-medium text-white/[0.78]">{skill.name}</span>
-                        <span className="text-white/[0.44]">{skill.level}%</span>
+                        <span className="font-medium text-text-secondary">{skill.name}</span>
+                        <span className="text-text-muted">{skill.level}%</span>
                       </div>
-                      <div className="h-2 overflow-hidden rounded-full bg-white/[0.08]">
+                      <div className="h-2 overflow-hidden rounded-full bg-surface-card-hover">
                         <motion.div
                           className={`h-full rounded-full ${bar}`}
                           initial={{ width: 0 }}

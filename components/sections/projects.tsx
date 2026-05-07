@@ -1,50 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowUpRight,
-  DatabaseZap,
-  Gauge,
-  Globe2,
-  Layers,
-  PlugZap
-} from "lucide-react";
-import { projects } from "@/data/profile";
+import { ArrowUpRight } from "lucide-react";
+import { projects, projectIcons } from "@/data/projects";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { SectionHeading } from "@/components/ui/section-heading";
 
-const accents: Record<string,
-  { border: string; text: string; bg: string; icon: typeof Gauge }
-> = {
+const accents: Record<string, { border: string; text: string; bg: string }> = {
   mint: {
     border: "border-mint/[0.28]",
     text: "text-mint",
-    bg: "bg-mint/10",
-    icon: Gauge
+    bg: "bg-mint/10"
   },
   aqua: {
     border: "border-aqua/[0.28]",
     text: "text-aqua",
-    bg: "bg-aqua/10",
-    icon: PlugZap
+    bg: "bg-aqua/10"
   },
   amber: {
     border: "border-amber/[0.28]",
     text: "text-amber",
-    bg: "bg-amber/10",
-    icon: DatabaseZap
+    bg: "bg-amber/10"
   },
   coral: {
     border: "border-coral/[0.28]",
     text: "text-coral",
-    bg: "bg-coral/10",
-    icon: Globe2
+    bg: "bg-coral/10"
   },
   violet: {
     border: "border-violet-400/[0.28]",
     text: "text-violet-400",
-    bg: "bg-violet-400/10",
-    icon: Layers
+    bg: "bg-violet-400/10"
   }
 };
 
@@ -58,14 +44,12 @@ export function Projects() {
           description="Hands-on projects spanning API integrations, WordPress engineering, geolocation, and cross-framework development."
         />
 
-        {/* First row — 3 cards */}
         <div className="grid gap-5 lg:grid-cols-3">
           {projects.slice(0, 3).map((project) => (
             <ProjectCard key={project.title} project={project} />
           ))}
         </div>
 
-        {/* Second row — 2 cards centered */}
         <div className="mt-5 grid gap-5 lg:grid-cols-2 lg:px-[calc(100%/6)]">
           {projects.slice(3).map((project) => (
             <ProjectCard key={project.title} project={project} />
@@ -78,7 +62,7 @@ export function Projects() {
 
 function ProjectCard({ project }: { project: (typeof projects)[number] }) {
   const accent = accents[project.accent] ?? accents.mint;
-  const Icon = accent.icon;
+  const Icon = projectIcons[project.accent] ?? projectIcons.mint;
 
   return (
     <motion.article
@@ -86,7 +70,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
       transition={{ type: "spring", stiffness: 220, damping: 18 }}
       className={`group overflow-hidden rounded-lg border ${accent.border} bg-panel/[0.82]`}
     >
-      <div className="relative min-h-30 border-b border-white/10 bg-ink p-5">
+      <div className="relative min-h-[7.5rem] border-b border-border-primary bg-ink p-5">
         <div className="absolute inset-0 bg-site-grid bg-[length:34px_34px] opacity-35" />
         <div className="relative flex items-center justify-between">
           <span
@@ -104,7 +88,7 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
 
       <div className="p-6">
         <div className="flex items-start justify-between gap-4">
-          <h3 className="font-display text-2xl font-semibold text-white">
+          <h3 className="font-display text-2xl font-semibold text-text-primary">
             {project.title}
           </h3>
           <ArrowUpRight
@@ -112,14 +96,14 @@ function ProjectCard({ project }: { project: (typeof projects)[number] }) {
             aria-hidden="true"
           />
         </div>
-        <p className="mt-4 min-h-24 leading-7 text-white/[0.66]">
+        <p className="mt-4 min-h-24 leading-7 text-text-secondary">
           {project.description}
         </p>
         <div className="mt-6 flex flex-wrap gap-2">
           {project.stack.map((tech) => (
             <span
               key={tech}
-              className="rounded-md border border-white/10 bg-white/[0.055] px-3 py-2 text-xs font-semibold text-white/[0.68]"
+              className="rounded-md border border-border-primary bg-surface-card px-3 py-2 text-xs font-semibold text-text-secondary"
             >
               {tech}
             </span>

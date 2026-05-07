@@ -2,7 +2,8 @@
 
 import { motion, easeOut } from "framer-motion";
 import { ArrowRight, BadgeCheck, Mail, MapPin, Rocket } from "lucide-react";
-import { profile, stats } from "@/data/profile";
+import { profile } from "@/data/profile";
+import { stats } from "@/data/navigation";
 
 const container = {
   hidden: { opacity: 0 },
@@ -27,7 +28,7 @@ export function Hero() {
         <motion.div variants={container} initial="hidden" animate="visible">
           <motion.div
             variants={item}
-            className="mb-6 inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.07] px-3 py-2 text-sm text-white/[0.76]"
+            className="mb-6 inline-flex items-center gap-2 rounded-md border border-border-primary bg-surface-card px-3 py-2 text-sm text-text-secondary"
           >
             <Rocket className="size-4 text-mint" aria-hidden="true" />
             Back-end focused full-stack developer
@@ -35,14 +36,14 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-white sm:text-6xl lg:text-7xl"
+            className="max-w-4xl font-display text-5xl font-semibold leading-[1.02] text-text-primary sm:text-6xl lg:text-7xl"
           >
             I build fast, scalable, and maintainable web systems.
           </motion.h1>
 
           <motion.p
             variants={item}
-            className="mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl"
+            className="mt-6 max-w-2xl text-lg leading-8 text-text-secondary sm:text-xl"
           >
             {profile.summary}
           </motion.p>
@@ -57,7 +58,7 @@ export function Hero() {
             </a>
             <a
               href={`mailto:${profile.email}?subject=Portfolio%20Inquiry`}
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/[0.12] bg-white/[0.07] px-5 py-3 text-sm font-bold text-white transition hover:bg-white/[0.12] focus:outline-none focus:ring-2 focus:ring-mint/70"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border-primary bg-surface-card px-5 py-3 text-sm font-bold text-text-primary transition hover:bg-surface-card-hover focus:outline-none focus:ring-2 focus:ring-mint/70"
             >
               <Mail className="size-4" aria-hidden="true" />
               Contact
@@ -66,15 +67,12 @@ export function Hero() {
               href={profile.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-md border border-white/[0.12] px-5 py-3 text-sm font-bold text-white/75 transition hover:border-aqua/40 hover:text-aqua focus:outline-none focus:ring-2 focus:ring-aqua/70"
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-border-primary px-5 py-3 text-sm font-bold text-text-secondary transition hover:border-aqua/40 hover:text-aqua focus:outline-none focus:ring-2 focus:ring-aqua/70"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M8 11v5" />
-                <path d="M8 8v.01" />
-                <path d="M12 16v-5" />
-                <path d="M16 16v-3a2 2 0 1 0 -4 0" />
-                <path d="M3 7a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v10a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4l0 -10" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a3 3 0 0 0-6 0v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
               </svg>
               LinkedIn
             </a>
@@ -82,7 +80,7 @@ export function Hero() {
 
           <motion.div
             variants={item}
-            className="mt-8 flex flex-wrap items-center gap-3 text-sm text-white/[0.58]"
+            className="mt-8 flex flex-wrap items-center gap-3 text-sm text-text-muted"
           >
             <span className="inline-flex items-center gap-2">
               <MapPin className="size-4 text-coral" aria-hidden="true" />
@@ -99,8 +97,8 @@ export function Hero() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.16 }}
           className="relative"
         >
-          <div className="rounded-lg border border-white/10 bg-panel/[0.86] p-4 shadow-2xl shadow-black/30 backdrop-blur">
-            <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-3">
+            <div className="rounded-lg border border-border-primary bg-panel/[0.86] p-4 shadow-2xl shadow-black/30 backdrop-blur">
+              <div className="mb-4 flex items-center justify-between border-b border-border-primary pb-3">
               <div className="flex items-center gap-2">
                 <span className="size-3 rounded-full bg-coral" />
                 <span className="size-3 rounded-full bg-amber" />
@@ -108,22 +106,22 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="space-y-4 font-mono text-sm leading-7 text-white/[0.78]">
+              <div className="space-y-4 font-mono text-sm leading-7 text-text-secondary">
               <p>
                 <span className="text-coral">const</span>{" "}
                 <span className="text-aqua">developer</span> = {"{"}
               </p>
               <p className="pl-4">
-                role: <span className="text-mint">"{profile.role}"</span>,
+                role: <span className="text-mint">&quot;{profile.role}&quot;</span>,
               </p>
               <p className="pl-4">
-                stack: <span className="text-amber">["Wordpress", "Laravel", "React", "Node"]</span>,
+                stack: <span className="text-amber">[&quot;Wordpress&quot;, &quot;Laravel&quot;, &quot;React&quot;, &quot;Node&quot;]</span>,
               </p>
               <p className="pl-4">
-                style: <span className="text-mint">"clean, scalable, pragmatic"</span>,
+                style: <span className="text-mint">&quot;clean, scalable, pragmatic&quot;</span>,
               </p>
               <p className="pl-4">
-                focus: <span className="text-aqua">"APIs + databases + performance"</span>
+                focus: <span className="text-aqua">&quot;APIs + databases + performance&quot;</span>
               </p>
               <p>{"}"}</p>
             </div>
@@ -133,7 +131,7 @@ export function Hero() {
                 <motion.div
                   key={focus}
                   whileHover={{ y: -3 }}
-                  className="flex items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] p-3 text-sm text-white/[0.72]"
+                  className="flex items-center gap-2 rounded-md border border-border-primary bg-surface-card p-3 text-sm text-text-secondary"
                 >
                   <BadgeCheck className="size-4 shrink-0 text-mint" aria-hidden="true" />
                   {focus}
@@ -152,10 +150,10 @@ export function Hero() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.06, duration: 0.45 }}
-            className="rounded-lg border border-white/10 bg-white/[0.045] p-5 backdrop-blur"
+            className="rounded-lg border border-border-primary bg-surface-card p-5 backdrop-blur"
           >
-            <p className="font-display text-3xl font-semibold text-white">{stat.value}</p>
-            <p className="mt-2 text-sm leading-6 text-white/60">{stat.label}</p>
+              <p className="font-display text-3xl font-semibold text-text-primary">{stat.value}</p>
+              <p className="mt-2 text-sm leading-6 text-text-muted">{stat.label}</p>
           </motion.div>
         ))}
       </div>

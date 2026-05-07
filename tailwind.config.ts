@@ -9,13 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#06080f",
-        panel: "#0d111c",
-        line: "rgba(255,255,255,0.1)",
+        ink: {
+          DEFAULT: "var(--bg-primary)",
+          solid: "#06080f"
+        },
+        panel: "var(--bg-panel)",
+        line: "var(--border-primary)",
         mint: "#58e6bd",
         coral: "#ff7a90",
         amber: "#f8c763",
-        aqua: "#61d7ff"
+        aqua: "#61d7ff",
+        surface: {
+          DEFAULT: "var(--bg-secondary)",
+          card: "var(--bg-card)",
+          "card-hover": "var(--bg-card-hover)"
+        },
+        text: {
+          primary: "var(--text-primary)",
+          secondary: "var(--text-secondary)",
+          muted: "var(--text-muted)"
+        }
       },
       boxShadow: {
         glow: "0 0 40px rgba(88, 230, 189, 0.16)"
@@ -26,7 +39,7 @@ const config: Config = {
       },
       backgroundImage: {
         "site-grid":
-          "linear-gradient(rgba(255,255,255,0.055) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.055) 1px, transparent 1px)"
+          "linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px)"
       }
     }
   },
