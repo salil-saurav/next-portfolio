@@ -23,7 +23,7 @@ const barColors: Record<string, string> = {
 
 export function Skills() {
   return (
-    <AnimatedSection id="skills" className="px-4 py-20 sm:px-6 lg:px-8">
+    <AnimatedSection id="skills" aria-label="Skills" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Skills"

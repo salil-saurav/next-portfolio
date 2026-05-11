@@ -9,23 +9,30 @@ Modern dark-themed developer portfolio built with Next.js, React, Tailwind CSS, 
 - Framer Motion reveal animations and micro-interactions
 - Resume-driven content in `data/profile.ts`
 - Modular sections for Hero, About, Skills, Experience, Projects, and Contact
-- SEO metadata in `app/layout.tsx`
-- Contact form UI with an email integration placeholder
+- Comprehensive test suite with Vitest and Playwright
+- Detailed project documentation in `GEMINI.md`
 
 ## Run Locally
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Open `http://localhost:3000`.
 
+## Testing
+
+```bash
+pnpm test       # Run unit/component tests (Vitest)
+pnpm test:e2e   # Run end-to-end tests (Playwright)
+```
+
 ## Production Build
 
 ```bash
-npm run build
-npm run start
+pnpm build
+pnpm start
 ```
 
 ## Deploy

@@ -21,7 +21,7 @@ const toolIcons: Record<string, LucideIcon> = {
 
 export function About() {
   return (
-    <AnimatedSection id="about" className="px-4 py-20 sm:px-6 lg:px-8">
+    <AnimatedSection id="about" aria-label="About" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="About"

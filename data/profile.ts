@@ -10,15 +10,15 @@ export const profile: ProfileInfo = {
   linkedin: "https://www.linkedin.com/in/salil-saurav",
   portfolio: SITE_URL,
   summary:
-    "Full-stack developer with 2.5 years of experience building scalable, high-performance web applications with clean and maintainable code. Strong in end-to-end development, deployment, database design, and back-end focused problem solving.",
+    "Full-Stack Developer with hands-on experience building production-ready applications using Laravel, PHP, JavaScript, WordPress, and modern frontend technologies. Skilled in backend architecture, API integrations, and scalable development with a strong focus on clean, maintainable code. Experienced with AI-assisted development workflows.",
   aboutSummary:
-    "I specialize in building structured back-end systems using Laravel, designing reusable service layers, and developing custom WordPress plugins & themes. I work extensively with APIs, database design, and performance optimization to ensure applications are fast, scalable, and easy to maintain.",
+    "I specialize in building structured back-end systems using Laravel, designing reusable service layers, and developing custom WordPress plugins & themes. I work extensively with APIs, database design, and performance optimization to ensure applications are fast, scalable, and easy to maintain. I also leverage AI-assisted tools like Cursor and OpenAI to accelerate debugging and implementation.",
   focus: [
     "Back-end architecture",
-    "Laravel service layers",
+    "AI-assisted development",
     "WordPress plugin systems",
     "API integrations",
-    "Performance and SEO"
+    "Scalable web applications"
   ]
 };
 

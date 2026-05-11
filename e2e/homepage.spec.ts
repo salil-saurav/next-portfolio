@@ -1,41 +1,58 @@
 import { test, expect } from "@playwright/test";
 
-test("homepage loads correctly", async ({ page }) => {
-  await page.goto("/");
+test.describe("Homepage", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto("/");
+  });
 
-  await expect(page).toHaveTitle(/Salil Saurav/);
-  await expect(page.getByRole("heading", { name: /I build fast, scalable, and maintainable web systems/i })).toBeVisible();
-});
+  test("should load the correct page title", async ({ page }) => {
+    await expect(page).toHaveTitle(/Salil Saurav/);
+  });
 
-test("navigation works", async ({ page }) => {
-  await page.goto("/");
+  test("should display the hero section correctly", async ({ page }) => {
+    const heroHeading = page.getByRole("heading", { name: /I build fast, scalable, and maintainable web systems/i });
+    await expect(heroHeading).toBeVisible();
+  });
 
-  await page.getByRole("link", { name: "About" }).click();
-  await expect(page).toHaveURL(/#about/);
+  test("should navigate to sections via the navbar", async ({ page }) => {
+    // About Section
+    await page.getByRole("link", { name: /About/i }).click();
+    await expect(page).toHaveURL(/.*#about/);
+    await expect(page.getByRole("region", { name: "About" })).toBeInViewport();
 
-  await page.getByRole("link", { name: "Projects" }).click();
-  await expect(page).toHaveURL(/#projects/);
-});
+    // Projects Section
+    await page.getByRole("link", { name: /Projects/i }).click();
+    await expect(page).toHaveURL(/.*#projects/);
+    await expect(page.getByRole("region", { name: "Projects" })).toBeInViewport();
+  });
 
-test("contact section has form and contact methods", async ({ page }) => {
-  await page.goto("/#contact");
+  test("should interact with the contact form", async ({ page }) => {
+    await page.goto("/#contact");
+    
+    await page.getByLabel("Name").fill("Test User");
+    await page.getByLabel("Email").fill("test@example.com");
+    await page.getByLabel("Message").fill("This is a test message.");
+    
+    // Note: Form currently just prevents default and shows success/error status
+    await page.getByRole("button", { name: /Send message/i }).click();
+    
+    // Check if status feedback appears
+    await expect(page.locator("role=status")).toBeVisible();
+  });
 
-  await expect(page.getByRole("heading", { name: /Contact info/i })).toBeVisible();
-  await expect(page.getByRole("heading", { name: /Send a message/i })).toBeVisible();
-  await expect(page.getByRole("form")).toBeVisible();
-  await expect(page.getByRole("link", { name: "Email" })).toBeVisible();
-});
+  test("should toggle the theme", async ({ page }) => {
+    const themeToggle = page.getByLabel(/switch to/i);
+    const initialLabel = await themeToggle.getAttribute("aria-label");
+    
+    await themeToggle.click();
+    
+    const newLabel = await themeToggle.getAttribute("aria-label");
+    expect(newLabel).not.toBe(initialLabel);
+  });
 
-test("theme toggle is present", async ({ page }) => {
-  await page.goto("/");
-
-  const themeToggle = page.getByRole("button", { name: /switch to/i });
-  await expect(themeToggle).toBeVisible();
-});
-
-test("skip navigation link works", async ({ page }) => {
-  await page.goto("/");
-
-  await page.keyboard.press("Tab");
-  await expect(page.getByRole("link", { name: "Skip to main content" })).toBeFocused();
+  test("should trigger skip link with keyboard", async ({ page }) => {
+    await page.keyboard.press("Tab");
+    const skipLink = page.getByRole("link", { name: /Skip to main content/i });
+    await expect(skipLink).toBeFocused();
+  });
 });

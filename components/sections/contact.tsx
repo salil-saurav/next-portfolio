@@ -13,7 +13,7 @@ const contactIcons: Record<string, LucideIcon> = {
 
 export function Contact() {
   return (
-    <AnimatedSection id="contact" className="px-4 py-20 sm:px-6 lg:px-8">
+    <AnimatedSection id="contact" aria-label="Contact" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto">
         <SectionHeading
           eyebrow="Contact"

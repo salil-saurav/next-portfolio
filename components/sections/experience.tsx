@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 export function Experience() {
   return (
-    <AnimatedSection id="experience" className="px-4 py-20 sm:px-6 lg:px-8">
+    <AnimatedSection id="experience" aria-label="Experience" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Experience"

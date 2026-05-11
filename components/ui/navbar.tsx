@@ -55,18 +55,27 @@ export function Navbar() {
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-sm font-medium text-text-secondary transition hover:bg-surface-card-hover hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-mint/70"
-            >
-              {item.label}
-            </a>
+            <li key={item.href}>
+              <a
+                href={item.href}
+                className="rounded-md px-3 py-2 text-sm font-medium text-text-secondary transition hover:bg-surface-card-hover hover:text-text-primary focus:outline-none focus:ring-2 focus:ring-mint/70"
+              >
+                {item.label}
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
 
+          <a
+            href="/CV.pdf"
+            target="_blank"
+            rel="noreferrer"
+            className="hidden items-center gap-2 rounded-md border border-border-primary bg-surface-card px-3 py-2 text-sm font-semibold text-text-primary transition hover:bg-surface-card-hover focus:outline-none focus:ring-2 focus:ring-mint/70 md:flex"
+          >
+            Resume
+          </a>
           <a
             href={`mailto:${profile.email}?subject=Portfolio%20Inquiry`}
             className="hidden items-center gap-2 rounded-md border border-mint/30 bg-mint/[0.12] px-3 py-2 text-sm font-semibold text-mint transition hover:bg-mint/[0.18] focus:outline-none focus:ring-2 focus:ring-mint/70 md:flex"
@@ -97,19 +106,19 @@ export function Navbar() {
               exit={{ opacity: 0, y: -8 }}
               className="border-t border-border-muted bg-ink/95 px-4 py-4 md:hidden"
             >
-              <div className="mx-auto grid max-w-7xl gap-2">
+              <ul className="mx-auto grid max-w-7xl gap-2">
                 {navItems.map((item) => (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    role="menuitem"
-                    onClick={() => setOpen(false)}
-                    className="rounded-md px-3 py-3 text-sm font-medium text-text-secondary transition hover:bg-surface-card-hover hover:text-text-primary"
-                  >
-                    {item.label}
-                  </a>
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      onClick={() => setOpen(false)}
+                      className="block rounded-md px-3 py-3 text-sm font-medium text-text-secondary transition hover:bg-surface-card-hover hover:text-text-primary"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </motion.div>
           )}
         </AnimatePresence>

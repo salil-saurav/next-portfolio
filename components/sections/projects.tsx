@@ -36,7 +36,7 @@ const accents: Record<string, { border: string; text: string; bg: string }> = {
 
 export function Projects() {
   return (
-    <AnimatedSection id="projects" className="px-4 py-20 sm:px-6 lg:px-8">
+    <AnimatedSection id="projects" aria-label="Projects" className="px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Projects"

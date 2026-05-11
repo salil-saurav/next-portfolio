@@ -1,23 +1,17 @@
 "use client";
 
-import { motion } from "framer-motion";
-import type { ReactNode } from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
-type AnimatedSectionProps = {
-  id?: string;
-  className?: string;
-  children: ReactNode;
-};
+type AnimatedSectionProps = HTMLMotionProps<"section">;
 
-export function AnimatedSection({ id, className = "", children }: AnimatedSectionProps) {
+export function AnimatedSection({ children, ...props }: AnimatedSectionProps) {
   return (
     <motion.section
-      id={id}
-      className={className}
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-110px" }}
       transition={{ duration: 0.55, ease: "easeOut" }}
+      {...props}
     >
       {children}
     </motion.section>

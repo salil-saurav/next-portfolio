@@ -1,17 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import type { Resend } from "resend";
+import { Resend } from "resend";
 
 const fromEmail = process.env.FROM_EMAIL || "onboarding@resend.dev";
 const toEmail = "salilsaurav.work@gmail.com";
 
+// Initialize Resend lazily to allow for environment variable changes or missing keys during build
 let resendInstance: Resend | null = null;
 
 function getResend() {
   if (!resendInstance) {
-    const { Resend: ResendClass } = require("resend");
-    resendInstance = new ResendClass(process.env.RESEND_API_KEY || "");
+    resendInstance = new Resend(process.env.RESEND_API_KEY || "");
   }
-  return resendInstance!;
+  return resendInstance;
 }
 
 export async function POST(request: NextRequest) {
@@ -27,6 +27,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured.");
       return NextResponse.json(
         {
           ok: false,
@@ -38,7 +39,7 @@ export async function POST(request: NextRequest) {
 
     const resend = getResend();
 
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
       subject: `Portfolio Contact: ${name}`,
@@ -52,11 +53,17 @@ export async function POST(request: NextRequest) {
       `
     });
 
+    if (error) {
+      console.error("Resend error:", error);
+      throw new Error(error.message);
+    }
+
     return NextResponse.json(
       { ok: true, message: "Message sent successfully." },
       { status: 200 }
     );
-  } catch {
+  } catch (err) {
+    console.error("Contact API Error:", err);
     return NextResponse.json(
       { ok: false, message: "Failed to send message. Please try again." },
       { status: 500 }

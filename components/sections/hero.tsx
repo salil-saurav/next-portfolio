@@ -22,6 +22,7 @@ export function Hero() {
   return (
     <section
       id="home"
+      aria-label="Introduction"
       className="relative overflow-hidden px-4 pb-20 pt-28 sm:px-6 md:pb-28 md:pt-32 lg:px-8"
     >
       <div className="mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
